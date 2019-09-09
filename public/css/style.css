@@ -1,0 +1,116 @@
+@font-face{
+  font-family: 'cinecaption';
+  src: url(../fonts/cinecaption226.ttf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  color: #363636;
+}
+
+body{
+  background: #fafafa
+}
+
+.contribution{
+  width: 100vw;
+}
+
+.timeline {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'cinecaption'
+}
+
+
+.like{
+  background: transparent;
+  border: none;
+  letter-spacing: 0.5rem;
+  color: #737373;
+  display: block;
+  margin: 0 0 0 auto;
+}
+
+.trash{
+  background: transparent;
+  border: none;
+  display: block;
+  margin: 0 0 0 auto;
+}
+
+.send{
+  background: transparent;
+  border: none;
+  color: #737373;
+  font-size: 1rem;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+label img{
+  margin: 0.3rem;
+}
+
+input[type="radio"]:checked + label img {
+  background: #00afcc;
+}
+
+.card-input{
+  border: none;
+}
+
+h1{
+  font-family: 'cinecaption'
+}
+
+header a{
+  display: block;
+  font-size: 2rem;
+  width: 2rem;
+  margin: 0 0 0 auto;
+}
+
+@media screen and (min-width:960px){
+  .main-image{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/aoharuw.jpg);
+    background-size: cover;
+  }
+
+  .links{
+    margin-top: 55vh !important;
+  }
+
+  .links a{
+    color: #000;
+    margin: 0 auto;
+  }
+
+
+}
+
+
+@media screen and (max-width:960px){
+  .main-image{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/aoharu.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #1e1b23;
+  }
+
+  .links{
+    margin-top: 65vh !important;
+  }
+
+  .links a{
+    color: #fff;
+  }
+
+}

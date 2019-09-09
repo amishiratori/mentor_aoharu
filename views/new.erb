@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta property="og:title" content="名城アオハルコレクション" />
+  <meta property="og:site_name" content="名城アオハルコレクション" />
+  <meta property="og:image" content="https://res.cloudinary.com/dkisry85c/image/upload/v1565402598/aoharuw_mgfm3j.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="300" />
+  <title>名城アオハルコレクション</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="https://kit.fontawesome.com/5ac9533b42.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="text-center my-5">メンターの写真を選んで、アオハルなセリフを入力しよう！</h1>
+    <form action="/new" method="post" enctype="multipart/form-data">
+      <div class="form-row ">
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mx-auto mb-3">
+          <input type="text" name="text" placeholder="セリフ">
+          <input type="text" name="author" placeholder="投稿者名">
+          <button type="submit" class="send"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+      <div class="grid-index"></div>
+      <div class="grid-sizer col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
+      <div class="row">
+        <% @mentors.each do |mentor| %>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 card-input">
+            <div class="row">
+             <input type="radio" value="<%= mentor.id %>" id="<%= mentor.id %>" name="mentor">
+             <label for="<%= mentor.id %>"><img src="<%= mentor.image %>" class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"></label>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </form>
+  </div>
+
+</body>
+<script>
+  $(function () {
+
+      $('.grid-index').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true
+      })
+    })
+</script>
+</html>
